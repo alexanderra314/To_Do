@@ -9,7 +9,7 @@ session_start(); // Iniciar la sesión
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
   <!-- Incluye CSS de DataTables -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/css.css">
 </head>
@@ -25,28 +25,16 @@ session_start(); // Iniciar la sesión
     <table id="tabla-datos" class="table table-striped">
       <thead>
         <tr>
-          <th scope="col">Actualizar</th>
           <th scope="col">ID</th>
           <th scope="col">Nombre</th>
           <th scope="col">Fecha_Creacion</th>
           <th scope="col">Estado</th>
           <th scope="col">Accion</th>
+          <th scope="col">Actualizar</th>
           <!-- Agrega aquí más columnas según tu estructura de datos -->
         </tr>
       </thead>
-      <tbody>
-        <?php
-        // Aquí iría tu código PHP para obtener y mostrar los datos de la tabla
-        // Ejemplo:
-        // while ($row = $result->fetch_assoc()) {
-        //   echo "<tr>";
-        //   echo "<td>" . $row['id'] . "</td>";
-        //   echo "<td>" . $row['nombre'] . "</td>";
-        //   echo "<td>" . $row['descripcion'] . "</td>";
-        //   // Agrega aquí más columnas según tu estructura de datos
-        //   echo "</tr>";
-        // }
-        ?>
+      <tbody id='body_datos'> 
       </tbody>
     </table>
   </div>
@@ -89,10 +77,12 @@ session_start(); // Iniciar la sesión
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://cdn.datatables.net/1.11.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+  <script src="https://cdn.datatables.net/2.0.0/js/dataTables.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="../js/tarea.js"></script>
+
+  
 
 </body>
 </html>

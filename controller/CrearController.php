@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // Incluye el archivo de configuración de la base de datos
 require_once '../config/config.php';
 
@@ -12,9 +12,10 @@ if ($conn->connect_error) {
 }
 
     $name = $_POST['nombre'];
+    $usuario_id = $_SESSION['usuario_id'];
 
     // Prepara la consulta SQL
-    $sql = "INSERT INTO tarea(id, Nombre, estado_id, Fecha_crea) VALUES ('','$name',1,NOW())";
+    $sql = "INSERT INTO tarea(id, nombre, estado_tareas_id, usuario_id, fecha_crea,estado) VALUES ('','$name',1,$usuario_id,NOW(),1)";
     if ($conn->query($sql) === TRUE) {
         $response['success'] = true;
     } else {

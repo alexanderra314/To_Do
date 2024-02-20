@@ -16,7 +16,7 @@ $password = $_POST['Password'];
 
 
 
-$sql = "SELECT * FROM usuarios WHERE email='$username' AND pass='$password'";
+$sql = "SELECT * FROM usuario WHERE email='$username' AND pass='$password'";
 $result = $conn->query($sql);
 
 // Verifica si hay algún resultado
@@ -26,11 +26,11 @@ if ($result->num_rows > 0) {
   // exit;
   session_start();
   $row = $result->fetch_assoc();
-
   // Mostrar los datos del usuario
   $_SESSION['email'] = $username;
   $_SESSION['Nombres'] = $row['Nombres'];
   $_SESSION['Apellidos'] = $row['Apellidos'];
+  $_SESSION['usuario_id'] = $row['usuario_id'];
   $response['success'] = true;
 } else {
   // Inicio de sesión fallido
