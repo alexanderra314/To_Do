@@ -1,9 +1,20 @@
 #bton {
-    width: 200px; /* Ancho deseado para el div1 */
+    width: 100%;  
     padding: 10px;
     display: flex;
 }
 
 #contenedor button:not(:last-child) {
-    margin-right: 10px; /* Agrega un margen entre los botones */
+    margin-right: 10px;  
+}
+
+#datatable_id { 
+    text-align: center;
+    margin-top: 50px;
+    width: 1360;
+    height:217px;
+}
+
+#title {
+    text-align: center;
 }

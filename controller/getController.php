@@ -8,7 +8,7 @@ if ($conn->connect_error) {
 }
     $response['success'] = false;
     $usuario_id = $_SESSION['usuario_id'];
-    $sql = "SELECT * FROM tarea where usuario_id = $usuario_id ";
+    $sql = "SELECT * FROM tarea where usuario_id = $usuario_id AND estado = 1";
     $result = $conn->query($sql);
     $datos =[];
     $htmlTabla = '';
@@ -36,16 +36,16 @@ if ($conn->connect_error) {
             $htmlTabla .= '<td>' . $row['fecha_crea'] . '</td>';
             $htmlTabla .= '<td>' . $estado . '</td>';
             $htmlTabla .= '<td>';
-            $htmlTabla .= '<button type="button" class="btn btn-secondary" onclick="eliminar(' . $row['id'] . ')">Eliminar</button>';
+            $htmlTabla .= '<button type="button" class="btn btn-outline-danger btn-sm" onclick="eliminar(' . $row['id'] . ')">Eliminar</button>';
             $htmlTabla .= '</td>';
             $htmlTabla .= '<td>';
             if ($row['estado_tareas_id'] == 1) {
-                $htmlTabla .= '<select class="form-select form-select-lg mb-3" aria-label="Large select example" id="select_datos">';
+                $htmlTabla .= '<select class="form-select form-select-lg mb-3" aria-label="Large select example" name ="select_datos' . $row['id'] . '"  id="select_datos' . $row['id'] . '">';
                 $htmlTabla .= '<option value="1" selected>Pendiente</option>';
                 $htmlTabla .= '<option value="2">Realizada</option>';
                 $htmlTabla .= '<option value="3">Cancelada</option>';
                 $htmlTabla .= '</select> ';
-                $htmlTabla .= ' <button type="button" class="btn btn-secondary" onclick="update(' . $row['id'] . ')"> Confirmar </button>';
+                $htmlTabla .= ' <button type="button" class="btn btn-outline-info btn-sm" onclick="update(' . $row['id'] . ')"> Confirmar </button>';
             }
             $htmlTabla .= '</td>';
             

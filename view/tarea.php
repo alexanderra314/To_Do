@@ -14,30 +14,33 @@ session_start(); // Iniciar la sesión
   <link rel="stylesheet" href="../css/css.css">
 </head>
 <body>
-  <h2>Bienvenido, <?php echo $_SESSION['Nombres'].' '. $_SESSION['Apellidos'].''; ?></h2>
-  <div>
-
-<div class="btn-group" role="group" aria-label="Basic example" id="bton">
-  <button type="button" class="btn btn-primary" id="botonModal" onclick="mostrarModal();">Crear</button>
-  <!-- <button type="button" class="btn btn-success">Actualizar</button> -->
-  <!-- <button type="button" class="btn btn-primary">Right</button> -->
-</div>
-    <table id="tabla-datos" class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Fecha_Creacion</th>
-          <th scope="col">Estado</th>
-          <th scope="col">Accion</th>
-          <th scope="col">Actualizar</th>
-          <!-- Agrega aquí más columnas según tu estructura de datos -->
-        </tr>
-      </thead>
-      <tbody id='body_datos'> 
-      </tbody>
-    </table>
+  <div id='title'>
+    <h2>Bienvenido, <?php echo $_SESSION['Nombres'].' '. $_SESSION['Apellidos'].''; ?></h2>
   </div>
+  
+<div>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-outline-primary btn-sm" id="botonModal" onclick="mostrarModal();" type="button">Crear</button>
+  <button class="btn btn-outline-success btn-sm" id="export" onclick="exportar();" type="button">Exportar</button>
+  <button class="btn btn-outline-warning btn-sm" id="cerrar" onclick="cerrar_sesion();" type="button">Cerrar</button>
+</div>
+<div id='datatable_id' name= 'datatable_id'>
+  <table id="tabla-datos" class="table table-bordered table-sm">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Fecha_Creacion</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Accion</th>
+        <th scope="col">Actualizar</th>
+        <!-- Agrega aquí más columnas según tu estructura de datos -->
+      </tr>
+    </thead>
+    <tbody id='body_datos'> 
+    </tbody>
+  </table>
+</div>
 <!-- MODAL -->
   <div class="modal fade" id="modal_crear" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="miModal">
   <div class="modal-dialog">
@@ -51,11 +54,7 @@ session_start(); // Iniciar la sesión
           <div class="mb-3">
             <label for="nombre_tarea" class="col-form-label">Nombre de la tarea:</label>
             <input type="text" class="form-control" id="nombre_tarea">
-          </div>
-          <!-- <div class="mb-3">
-            <label for="message-text" class="col-form-label">Descripcion de la tarea:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div> -->
+          </div> 
         </form>
       </div>
       <div id="miModalcerrae" class="modal">
@@ -72,6 +71,12 @@ session_start(); // Iniciar la sesión
     </div>
   </div>
 </div>
+
+<footer id="footer">
+    <div class="container">
+    </div>
+</footer>
+
 
   <!-- Incluye Bootstrap JS (opcional) -->
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
