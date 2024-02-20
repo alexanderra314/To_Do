@@ -1,0 +1,9 @@
+#bton {
+    width: 200px; /* Ancho deseado para el div1 */
+    padding: 10px;
+    display: flex;
+}
+
+#contenedor button:not(:last-child) {
+    margin-right: 10px; /* Agrega un margen entre los botones */
+}

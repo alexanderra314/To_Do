@@ -21,9 +21,16 @@ $result = $conn->query($sql);
 
 // Verifica si hay algún resultado
 if ($result->num_rows > 0) {
-  // Inicio de sesión exitoso
+  // // Inicio de sesión exitoso
+  // print_r($result);
+  // exit;
   session_start();
+  $row = $result->fetch_assoc();
+
+  // Mostrar los datos del usuario
   $_SESSION['email'] = $username;
+  $_SESSION['Nombres'] = $row['Nombres'];
+  $_SESSION['Apellidos'] = $row['Apellidos'];
   $response['success'] = true;
 } else {
   // Inicio de sesión fallido
